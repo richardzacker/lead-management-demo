@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raimak LMS — Demo</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-authentication-library/2.38.3/msal-browser.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
 /* ============================================================
    Raimak LMS v3.0 — Gamified Dark Theme
@@ -1270,7 +1269,7 @@ function renderLeadModal(lead) {
       <div class="form-row"><div class="form-group"><label>MRC</label><input type="text" id="f-mrc" class="form-input" placeholder="e.g. $104.49" value="${escHtml((lead&&lead.currentMRC)||"")}"></div><div class="form-group"><label>Current Products</label><select id="f-products" class="form-input"><option value="">Select products...</option>${Config.currentProducts.map(p=>`<option value="${p}" ${lead&&lead.currentProducts===p?"selected":""}>${p}</option>`).join("")}</select></div></div>
       <div class="form-group form-group-full"><label>Add Note</label><textarea id="f-notes" class="form-input form-textarea" placeholder="Add a note..."></textarea></div>
     </div>
-    <div class="modal-footer"><button class="btn-ghost" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="${isEdit?"submitEditLead()":"submitAddLead()}">${isEdit?"Save Changes":"Add Lead"}</button></div>`;
+    <div class="modal-footer"><button class="btn-ghost" onclick="closeModal()">Cancel</button><button class="btn-primary" onclick="${isEdit?'submitEditLead':'submitAddLead'}()">${isEdit?'Save Changes':'Add Lead'}</button></div>`;
   document.getElementById("modal-overlay").style.display="flex";
 }
 
